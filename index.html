@@ -5,16 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     </head>
-
  <body>
-<!--
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="">
-            Project
-
-      </div>
-
-    -->
     <div class="container">
 
 
@@ -23,8 +14,9 @@
         <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title">Sign In</div>
-                        <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
+                    <div class="panel-title">Sign In</div>
+     <div style="float:right; font-size: 80%; position: relative; top:-10px">
+      <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm"  data-target=".bs-example-modal-sm">Forgot password?</a></div>
                     </div>
 
                     <div style="padding-top:30px" class="panel-body" >
@@ -186,6 +178,40 @@
 
               </div>
       </div>
+   
+
+
+     
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" >
+    
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3"></div>
+          <div class="col-lg-4">
+      <form class="form-horizontal" method="get" action="recover.php" >
+        <div class="form-group">
+                                    <label for="Email" class=" control-label">Email</label>
+                                    <div >
+                                        <input type="email" class="form-control" id="recover" name="mail" placeholder="email">
+                                    </div>
+                                </div>
+        <input type="submit" value="Reset Password" class="btn btn-primary">
+
+      </form>
+     
+    </div>
+    <div class="col-lg-3"></div>
+    </div>
+  </div>
+  </div>
+    </div>
+  </div>
+ 
 
     </body>
     </html>

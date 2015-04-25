@@ -1,39 +1,48 @@
 
 <table class="table table-bordered">
+  <tr>
+    <td class="lead">Group Id</td>
+    <td class="lead"> Project Name</td>
+  </tr>
 
 <?php
-
-  // include 'include/connection.php';
-
-  // $db= new Database();
    $db->connect();
    $usid=$_SESSION['user'];
+
+   $query="SELECT email from user_detail where username='$usid'";
+   $result=$db->run_query($query);
+   $email_id=mysqli_fetch_array($result);
     
-   $query = "SELECT * from db  where username='$usid'";
-
-
+   $query = "SELECT * from group_list";
 
    $result=$db->run_query($query);
-   if(empty($result))
-    echo "<script>alert('not working')</script>";
+   while ($row=mysqli_fetch_array($result)) {
 
-
-   while($row=mysqli_fetch_array($result))
+   if($row['mail1']==$email_id['email'] || $row['mail2']==$email_id['email'] || $row['mail3']==$email_id['email']|| $row['mail4']==$email_id['email'])
    {
-    ?>
+     $project=$row['prj_name'];
+   }
+
+   }
+   $query="SELECT group_id from pc_db where prj_name='$project'";
+
+   $result=$db->run_query($query);
+
+   $gpid=mysqli_fetch_array($result);
+   
+  ?>
     <tr>
       <?php
      
-      echo "<td>".$row['group_id']."</td>";
-       echo "<td>".$row['prj_name']."</td>";
+      echo "<td>".$gpid['group_id']."</td>";
+       echo "<td>".$project."</td>";
      
      ?>
    </tr>
    <?php
-   }
+   
 
     $db->disconnect();
-
 
 
 ?>

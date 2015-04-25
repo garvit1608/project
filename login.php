@@ -1,8 +1,11 @@
 <html>
 <head>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
+
 <body>
 <?php
 session_start();
@@ -13,6 +16,7 @@ include 'include/connection.php';
 
   $db=new Database();
   $db->connect();
+  
   $confirm= $db->run_query("SELECT * from user_detail");
  $count=0;
   while($row=mysqli_fetch_array($confirm))
@@ -27,7 +31,7 @@ include 'include/connection.php';
          $_SESSION['user']=$row['username'];
          $_SESSION['regno']=$row['reg'];
          $_SESSION['dept']='IT';
-         $_SESSION['no_of_pr']=2;
+       
 
          $count=1;
 
