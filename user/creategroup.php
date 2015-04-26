@@ -15,9 +15,16 @@ if(!empty($result))
 {
 echo "group created";
 
+//echo "<script>setTimeout(function(){window.location.assign('../login.php')},3000);</script>";
+
 $query="UPDATE pc_db set flag='1' where prj_name='$prj'";
 $result=$db->run_query($query);
 
+}
+else
+
+{
+	echo "group not created";
 }
 
 ?>

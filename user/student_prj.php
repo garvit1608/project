@@ -8,6 +8,7 @@
 <?php
    $db->connect();
    $usid=$_SESSION['user'];
+   
 
    $query="SELECT email from user_detail where username='$usid'";
    $result=$db->run_query($query);

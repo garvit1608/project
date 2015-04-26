@@ -2,6 +2,7 @@
 
 $db->connect();
  $prname=$_SESSION['prjname'];
+// echo "<script>alert('$prname')</script>";
 $query="SELECT * from group_list where prj_name='$prname'";
  $result=$db->run_query($query);
  $result=mysqli_fetch_array($result);

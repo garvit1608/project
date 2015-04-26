@@ -10,6 +10,8 @@
 
  $db->connect();
  $prj=$_SESSION['prjname'];
+ //echo "<script>alert('$prj')</script>";
+ 
  $query="SELECT * from task where prj_name='$prj'";
  $result=$db->run_query($query);
  while ($row=mysqli_fetch_array($result)) {

@@ -17,11 +17,15 @@ label
 	session_start();
 	include '../include/connection.php';
 	$db=new Database();
-	?>
 
+	?>
 <div class="container-fluid">
+  <div class="row">
+    <h2>Team Page</h2>
+  </div>
+  <hr class="featurette-divider">
 	<div class="row">
-	<div class="col-md-2">
+	<div class="col-md-3">
 		<div class="lead">Tasks</div>
 		<form>
 
@@ -53,24 +57,25 @@ label
 		</form>	
 		<button class="btn btn-primary" onclick="formsubmit()">Create Task</button>
 		<div id="myDiv"></div>
+    <button class="btn btn-success" onclick="window.location.assign('../logout.php')" style="margin-top:50px;">Log Out</button>
 
 	</div>
+  <div class="col-md-3">
+
+    <div class="lead">Members</div>
+
+    <?php include 'display_members.php'; ?>
+    
+
+
+  </div>
 	<div class="col-md-6">
 		<div class="lead">
 			Timeline
 		</div>
 		<?php include 'taskdesc.php'; ?>
-
 	</div>
-	<div class="col-md-4">
-
-		<div class="lead">Members</div>
-
-		<?php include 'display_members.php'; ?>
-		
-
-
-	</div>
+	
 </div>
 </div>
 <script type="text/javascript">
@@ -81,6 +86,13 @@ function formsubmit () {
 	var tskdt=document.getElementById('taskdate').value;
 	var tskmem=document.getElementById('member').value;
 	var xmlhttp;
+  if(tsk=='' || taskdesc=='' || tskdt=='' || tskmem=='')
+  {
+    alert('please fill all the fields');
+
+  }
+  else
+  {
     if (window.XMLHttpRequest)
   {// code for IE7+, Firefox, Chrome, Opera, Safari
   xmlhttp=new XMLHttpRequest();
@@ -108,6 +120,7 @@ xmlhttp.open("GET",d,true);
 xmlhttp.send();
 
 
+}
 }
 
 </script>

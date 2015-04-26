@@ -34,7 +34,7 @@
   Create Group
 </button>
 <div class="collapse" id="collapseExample">
-			<form class="form-horizontal" action="user/creategroup.php" method="get">
+			<form class="form-horizontal" action="user/creategroup.php" method="get" >
 				 <div class="form-group">
                                   <label for="projectname" class="control-label">Project Name</label>
                                   <div>
@@ -44,34 +44,34 @@
                     <div class="form-group">
                                   <label for="username" class="control-label">Member 1 </label>
                                   <div >
-                                      <input type="email" class="form-control" name="mem1" placeholder="Email">
+                                      <input type="email" class="form-control" name="mem1" placeholder="Email" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label for="username" class="control-label">Member 2</label>
                                   <div >
-                                      <input type="email" class="form-control" name="mem2"  placeholder="Email">
+                                      <input type="email" class="form-control" name="mem2"  placeholder="Email" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label for="username" class="control-label">Member 3</label>
                                   <div >
-                                      <input type="email" class="form-control" name="mem3" placeholder="Email">
+                                      <input type="email" class="form-control" name="mem3" placeholder="Email" required>
                                   </div>
                               </div>
                               <div class="form-group">
                                   <label for="username" class="control-label">Member 4</label>
                                   <div >
-                                      <input type="email" class="form-control" name="mem4" placeholder="Email">
+                                      <input type="email" class="form-control" name="mem4" placeholder="Email" required>
                                   </div>
                               </div>
 
-                              <input type="submit" class="btn btn-primary">
+        <input type="submit" class="btn btn-primary">
 
 
 			</form>
       </div>
-        <button class="btn btn-success" onclick="window.location.href='user/team.php';" style="margin-left:150px;margin-top:50px;"  >
+        <button class="btn btn-success" onclick="if(document.getElementById('prjtable').rows.length==1){this.disabled=true;alert('Please create a project first');}else{window.location.href='user/team.php';}" style="margin-left:150px;margin-top:50px;"  >
   Team Page
 </button>
 		</div>
