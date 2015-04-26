@@ -1,7 +1,4 @@
-<html>
 
-<body>
-  
   <style>
     label
     {
@@ -10,9 +7,9 @@
     }
     </style>
 
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<h1>Student</h1>
+		<h1 style="margin-left:100px">Welcome <?php echo $_SESSION['user'] ?></h1>
 	</div>
 	<div class="row">
 		<div class="col-md-4" style="padding-top:70px;">
@@ -26,14 +23,14 @@
 			</ul>
 		<a href="logout.php"><button class="btn btn-primary">Log Out</button></a>
 		</div>
-		<div class="col-md-4" style="padding-top:300px;">
+		<div class="col-md-4" style="padding-top:200px;">
 			<?php
 			include 'user/student_prj.php';
 
 			?>
 		</div>
 		<div class="col-md-4">
-      <button class="btn btn-primary" style="margin-left:150px;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <button class="btn btn-primary" onclick="if(document.getElementById('prjtable').rows.length==2){this.disabled=true;alert('You are already involved in a project');}" style="margin-left:150px;" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   Create Group
 </button>
 <div class="collapse" id="collapseExample">
@@ -74,6 +71,9 @@
 
 			</form>
       </div>
+        <button class="btn btn-success" onclick="window.location.href='user/team.php';" style="margin-left:150px;margin-top:50px;"  >
+  Team Page
+</button>
 		</div>
 	</div>
 </div>

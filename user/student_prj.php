@@ -1,5 +1,5 @@
 
-<table class="table table-bordered">
+<table class="table table-bordered" id="prjtable">
   <tr>
     <td class="lead">Group Id</td>
     <td class="lead"> Project Name</td>
@@ -21,14 +21,15 @@
    if($row['mail1']==$email_id['email'] || $row['mail2']==$email_id['email'] || $row['mail3']==$email_id['email']|| $row['mail4']==$email_id['email'])
    {
      $project=$row['prj_name'];
-   }
-
-   }
-   $query="SELECT group_id from pc_db where prj_name='$project'";
+     $query="SELECT group_id from pc_db where prj_name='$project'";
 
    $result=$db->run_query($query);
 
    $gpid=mysqli_fetch_array($result);
+
+   $_SESSION['prjname']=$project;
+   
+  
    
   ?>
     <tr>
@@ -36,10 +37,15 @@
      
       echo "<td>".$gpid['group_id']."</td>";
        echo "<td>".$project."</td>";
+
      
      ?>
    </tr>
    <?php
+ }
+ else
+  echo "<script>alert('You are not involved in any project')</script>";
+}
    
 
     $db->disconnect();
